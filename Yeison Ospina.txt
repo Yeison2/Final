@@ -1,0 +1,69 @@
+plsql.execute <<-SQL
+create or replace FUNCTION FIND_OUTLIER RETURN INTEGER AS
+
+Type Array_1 Is varray(50) of Number(10);
+
+Array_A  Array_1 := Array_1(2, 4, 0, 100, 4, 11, 2602, 36);
+BEGIN
+
+    suma := 0
+    for Array_1 In 1..8 Loop
+        sum += abs(list[ran])%2
+    avg = float(sum)/3
+    r_avg := round(avg)
+    return r_avg := 0
+
+    even =  ifeven(integers)
+    new := []
+    for num in integers:
+        new.append(num%2)
+    if even:
+        loc = new.index(1)
+    else:
+        loc = new.index(0)
+    return integers[loc]
+    
+    End Loop;
+    
+        return integers[loc]
+   
+END
+SQL
+
+plsql.execute <<-SQL
+
+create table amortizacion (
+  numero_cuota integer,
+  cuota_mensual decimal(15,2),
+  abono_capital decimal(15,2),
+  abono_interes decimal(15,2),
+  saldo decimal(15,2)
+)
+
+create or replace Procedure CALCULAR_SIMULACION AS
+  tasaefectivaanual decimal := (15,2);
+  numerototalcuotas integer := 0;
+  valorprestamo decimal := (15,2);
+  
+  CURSOR get_PROC IS 
+
+  BEGIN
+  FOR CALCULAR_SIMULACION in get_PROC LOOP
+    LOOP
+      tasaefectivaanual := CALCULAR();
+      numerototalcuotas := CALCULAR();
+      valorprestamo :=CALCULAR();
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE
+  END LOOP;
+ 
+END
+SQL
+
+plsql.execute <<-SQL
+
+CREATE OR REPLACE VIEW  PLAN_AMORTIZACION AS
+	SELECT numero_cuota, cuota_mensual, abono_capital, SUM(abono_interes, 2) total_interes, saldo
+  FROM amortizacion 
+	ORDER BY numero_cuota ASC
+SQL
